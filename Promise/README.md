@@ -41,3 +41,8 @@ Promises should either :
 * In a way, the Promise is a monad  and the `then()` is the `fmap` equivalent 
 
 > Once a promise is fulfilled or failed, the promise's value MUST not be changed, just as a values in JavaScript, primitives and object identities, can not change (although objects themselves may always be mutable even if their identity isn't).
+
+## Resources
+* https://medium.com/front-end-hacking/implementing-javascript-functors-and-monads-a87b6a4b4d9a
+* https://gist.github.com/domenic/3889970
+* https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
