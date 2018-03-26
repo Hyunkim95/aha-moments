@@ -1,5 +1,6 @@
 # Functors 
 
+## Covariant Functors
 ```
 class Functor f where 
   fmap :: (a -> b) -> f a -> f b
@@ -12,7 +13,7 @@ class Functor f where
 fmap  g :: f a -> f b
 ```
 
-## Contravairant Functors
+## Contravariant Functors
 
 * In comparison, contravariant functors have the arrows in the opposite direction
 
