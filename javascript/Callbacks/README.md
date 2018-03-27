@@ -18,6 +18,15 @@ socket.connect(callback)
 
 * You would expect that when the connect() returns, the callback may not have been called, since it's waiting for the connection to complete. 
 
+Note neither is better - nor are they interchangeable - they have different use purposes
+
+## Choose Sync or Async
+
+Because sync and async callbacks have different rules, they create different bugs.  The general rule is the following:
+
+***if the callback must be deferred in any situtation, always defer it***
+
+## Callbacks in Node 
 
 An asynchronous operation are generally handled using a callback, when the returned data or error is ready it points to a function that will be executed once that result is ready. 
 
