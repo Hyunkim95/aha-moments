@@ -2,7 +2,7 @@
 
 ## Different types of callbacks
 
-*** A synchronous *** callbacks is invoked before a function returns, that is, while the API receiving the callback remains on the stack.  
+***A synchronous*** callbacks is invoked before a function returns, that is, while the API receiving the callback remains on the stack.  
 
 ```
 list.foreach(callback) 
@@ -10,7 +10,7 @@ list.foreach(callback)
 
 * the expectation is that when foreach() returns, you expect that the callback has been invoked on each element 
 
-*** An asynchronous or deferred *** callbacks is invoked after a function returns, the deferral can be done through threads and main loops.  These kind of callbacks tend to be popular for  IO-related APIs.
+***An asynchronous or deferred*** callbacks is invoked after a function returns, the deferral can be done through threads and main loops.  These kind of callbacks tend to be popular for  IO-related APIs.
 
 ```
 socket.connect(callback)
