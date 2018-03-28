@@ -163,3 +163,10 @@ document.querySelector('form').onsubmit = formUploader.submit
 Resulting benefits: 
 * easier for new developers to understand -- they won't get bogged down by having to read through all of the formuploader functions
 * formuploader can get used in other places without duplicating code and can easily be shared on github or npm
+
+## Resources
+
+* http://callbackhell.com/
+* http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony
+* https://blog.ometer.com/2011/07/24/callbacks-synchronous-and-asynchronous/
+* https://medium.com/codebuddies/getting-to-know-asynchronous-javascript-callbacks-promises-and-async-await-17e0673281ee
