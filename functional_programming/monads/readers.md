@@ -221,7 +221,7 @@ const database = {
   insert: attrs => _.assign(attrs, {id: 1})
   }
 
-const save =  attrs =>
+const save = attrs =>
   ask.map(
     db => 
       db.insert(attrs)
