@@ -149,5 +149,95 @@ const prog =
 */
 ```
 
+Brian Lonsdorf Example
+https://vimeo.com/105300347
 
+```
+              'ELLO'
+const append = str => (3)
+  ask.map(env =>   <- govna is now the RHS (4)
+    concat(str, env) <- ELLO govna (5)
+  )
 
+const greeting =
+  compose(
+    chain(append),
+    map(toUpperCase), <- 'ELLO' (2)
+    Reader.of <- RHS is 'ello' (1)
+  )
+
+greeting('ello').run('govna')
+'ELLO govna'
+```
+
+```
+  {body: 'nothingness is somethingness bro'}
+const setAuthor = attrs => 
+  ask.map(user => <- {email: 'alanwatts@gmail.com', name: 'Alan'}
+    _.assign(attrs, {written_by: user.name})
+  )
+
+const writePost =
+  compose(
+    map(publish),
+    chain(setAuthor), 
+    Reader.of <- {body: 'nothingness is somethingness bro'}
+  )
+
+const result = writePost({body: 'nothingness is somethingness bro'})
+result.run({email: 'alanwatts@gmail.com', name: 'Alan'})
+```
+
+```
+const Reader = require('fantasy-readers')
+const ask = Reader.ask
+const _ = require('lodash')
+const database = { 
+  insert: attrs => _.assign(attrs, {id: 1})
+  }
+
+const save = curry((db, attrs) =>
+  db.insert(attrs)
+
+const fixAttributes = attrs =>
+  _.omit(attrs, 'admin')
+
+const create = 
+  compose(
+    JSON.stringify,
+    save(database),
+    fixAttributes
+  )
+
+const result = create({ name: 'Kim', email: 'kim@test.com.', admin: true })
+```
+* the following needs to be refactored as it passes around a global database
+
+```
+const Reader = require('fantasy-readers')
+const ask = Reader.ask
+const _ = require('lodash')
+const database = { 
+  insert: attrs => _.assign(attrs, {id: 1})
+  }
+
+const save =  attrs =>
+  ask.map(
+    db => 
+      db.insert(attrs)
+  )
+
+const fixAttributes = attrs =>
+  _.omit(attrs, 'admin')
+
+const create = 
+  compose(
+    map(JSON.stringify),
+    chain(save),
+    map(fixAttributes),
+    Reader.of
+  )
+
+const result = create({ name: 'Kim', email: 'kim@test.com.', admin: true })
+result.run(database)
+```
